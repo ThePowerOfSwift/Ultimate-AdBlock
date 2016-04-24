@@ -67,3 +67,5 @@ ads.rubiconproject.com
 adnxs.com
 reviveservers.com
 buysellads.com
+edge.quantserve.com
+quantserve.com

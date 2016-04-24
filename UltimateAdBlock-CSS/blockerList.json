@@ -259,5 +259,33 @@
     "trigger" : {
       "url-filter" : "prebid.min\\.js"
     }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "fbevents\\.js"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "gtm\\.js"
+    }
+  },
+  {
+    "action" : {
+      "type" : "ignore-previous-rules"
+    },
+    "trigger" : {
+      "url-filter" : ".*",
+      "if-domain" : [
+        "*play.google.com",
+        "*apps.admob.com"
+      ]
+    }
   }
 ]

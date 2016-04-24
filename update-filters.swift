@@ -26,13 +26,13 @@ print("Started generating the filters.json file.")
 // MARK: Enabled/Disabled per filter
 
 /// Default pgl.yoyo adservers
-let adServerHostnamesEnabled = false
+let adServerHostnamesEnabled = true
 
 /// Easylist adservers
-var easylist_adserversEnabled = false
+var easylist_adserversEnabled = true
 
 /// Malwaredomains
-let malwareHostnamesEnabled = false
+let malwareHostnamesEnabled = true
 
 /// Custom hostnames
 let customHostnamesEnabled = true
@@ -41,22 +41,22 @@ let customHostnamesEnabled = true
 var whitelistEnabled = true
 
 /// CSS Elements Anti AdBlock
-let antiAdBlockElementsEnabled = false
+let antiAdBlockElementsEnabled = true
 
 /// CSS Elements Ads
-let cssElementsAdsEnabled = false
+let cssElementsAdsEnabled = true
 
 /// CSS Elements Ads Easylist
-let cssElementsAdsEasyListEnabled = false
+let cssElementsAdsEasyListEnabled = true
 
 /// CSS Elements Social
-let cssElementsSocialEnabled = false
+let cssElementsSocialEnabled = true
 
 /// CSS Elements Social from the fanboy list
-let cssElementsSocialFanboyEnabled = false
+let cssElementsSocialFanboyEnabled = true
 
 /// Javascript elements
-let javascriptElementsEnabled = false
+let javascriptElementsEnabled = true
 
 /// Complete filters json block
 var blockerListHosts = [AnyObject]()
@@ -441,6 +441,7 @@ print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adSer
 print("Easylist hostnames: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
 print("Malwaredomains: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
 print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
+print("Whitelist hostnames: \(numberFormatter.stringFromNumber(whitelistCount)!)")
 
 let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount
 let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count + malwareHostnamesCount
@@ -503,6 +504,7 @@ for javascriptElement in javascriptElements {
     blockerListCssElements.append(javascriptElementBlock)
 }
 
+/// Whitelist hostnames
 if whitelistCount > 0 {
     let block = ["trigger" : ["url-filter" : ".*", "if-domain" : whitelistHostnames ], "action" : [ "type" : "ignore-previous-rules" ] ]
     blockerListHosts.append(block)

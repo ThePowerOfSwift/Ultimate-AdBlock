@@ -60,7 +60,7 @@ let javascriptElementsEnabled = false
 
 /// Complete filters json block
 var blockerListHosts = [AnyObject]()
-var blockerListCssElements = [[String:[String:String]]]()
+var blockerListCssElements = [AnyObject]()
 
 /// The start time
 let start = NSDate()
@@ -477,11 +477,6 @@ for host in malwareHostnamesToBlock {
     blockerListHosts.append(block)
 }
 
-if whitelistCount > 0 {
-    /// Iterate over every whitelist hostname
-    let block = ["trigger" : ["url-filter" : ".*", "if-domain" : whitelistHostnames ], "action" : [ "type" : "ignore-previous-rules" ] ]
-    blockerListHosts.append(block)
-}
 /// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
 blockerListCssElements.append(antiAdBlockElementsBlock)
@@ -506,6 +501,12 @@ blockerListCssElements.append(cssElementsSocialFanboyBlock)
 for javascriptElement in javascriptElements {
     let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
     blockerListCssElements.append(javascriptElementBlock)
+}
+
+if whitelistCount > 0 {
+    let block = ["trigger" : ["url-filter" : ".*", "if-domain" : whitelistHostnames ], "action" : [ "type" : "ignore-previous-rules" ] ]
+    blockerListHosts.append(block)
+    blockerListCssElements.append(block)
 }
 
 // MARK: Generate json file.

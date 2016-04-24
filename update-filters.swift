@@ -37,6 +37,9 @@ let malwareHostnamesEnabled = false
 /// Custom hostnames
 let customHostnamesEnabled = true
 
+/// Whitelist hostnames
+var whitelistEnabled = true
+
 /// CSS Elements Anti AdBlock
 let antiAdBlockElementsEnabled = false
 
@@ -233,6 +236,34 @@ if customHostnamesEnabled == true {
         
     } catch {
         print("Can't read the \(customHostnamesFile) file.")
+    }
+}
+
+// MARK: FILTER: Whitelist hostnames
+/// Whitelist websites to ignore all previous rules.
+var whitelistHostnames = [String]()
+let whitelistFile = "BlockData/whitelist.txt"
+var whitelistCount = 0
+
+if whitelistEnabled == true {
+    
+    do {
+        
+        let contents = try NSString(contentsOfFile: whitelistFile, usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+            
+            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            whitelistCount = hosts.count
+            
+            for host in hosts {
+                whitelistHostnames.append(host)
+            }
+            
+        }
+        
+    } catch {
+        print("Can't read the \(whitelistFile) file.")
     }
 }
 
@@ -446,6 +477,11 @@ for host in malwareHostnamesToBlock {
     blockerListHosts.append(block)
 }
 
+if whitelistCount > 0 {
+    /// Iterate over every whitelist hostname
+    let block = ["trigger" : ["url-filter" : ".*", "if-domain" : whitelistHostnames ], "action" : [ "type" : "ignore-previous-rules" ] ]
+    blockerListHosts.append(block)
+}
 /// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
 blockerListCssElements.append(antiAdBlockElementsBlock)

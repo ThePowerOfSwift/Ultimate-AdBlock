@@ -25,3 +25,5 @@ socialmedia\.js
 usabilla\.js
 analytics\.js
 prebid.min\.js
+fbevents\.js
+gtm\.js

@@ -26,37 +26,37 @@ print("Started generating the filters.json file.")
 // MARK: Enabled/Disabled per filter
 
 /// Default pgl.yoyo adservers
-let adServerHostnamesEnabled = true
+let adServerHostnamesEnabled = false
 
 /// Easylist adservers
-var easylist_adserversEnabled = true
+var easylist_adserversEnabled = false
 
 /// Malwaredomains
-let malwareHostnamesEnabled = true
+let malwareHostnamesEnabled = false
 
 /// Custom hostnames
 let customHostnamesEnabled = true
 
 /// CSS Elements Anti AdBlock
-let antiAdBlockElementsEnabled = true
+let antiAdBlockElementsEnabled = false
 
 /// CSS Elements Ads
-let cssElementsAdsEnabled = true
+let cssElementsAdsEnabled = false
 
 /// CSS Elements Ads Easylist
-let cssElementsAdsEasyListEnabled = true
+let cssElementsAdsEasyListEnabled = false
 
 /// CSS Elements Social
-let cssElementsSocialEnabled = true
+let cssElementsSocialEnabled = false
 
 /// CSS Elements Social from the fanboy list
-let cssElementsSocialFanboyEnabled = true
+let cssElementsSocialFanboyEnabled = false
 
 /// Javascript elements
-let javascriptElementsEnabled = true
+let javascriptElementsEnabled = false
 
 /// Complete filters json block
-var blockerListHosts = [[String:[String:String]]]()
+var blockerListHosts = [AnyObject]()
 var blockerListCssElements = [[String:[String:String]]]()
 
 /// The start time
@@ -436,7 +436,7 @@ print("")
 
 /// Iterate over every hostname and add it to the block list.
 for host in hostnamesToBlock {
-    let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
+    let block = ["trigger" : ["url-filter" : String(host), "load-type" : ["third-party"] ], "action" : [ "type" : "block" ] ]
     blockerListHosts.append(block)
 }
 
@@ -444,7 +444,6 @@ for host in hostnamesToBlock {
 for host in malwareHostnamesToBlock {
     let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
     blockerListHosts.append(block)
-    
 }
 
 /// Anti Adblock Elements

@@ -1,6 +1,6 @@
 # Ultimate-AdBlock for Safari
 Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
-Blocks hostnames and css items.
+Blocks hostnames and hides CSS Ads Elements.
 
 The project is in active development.
 
@@ -25,7 +25,7 @@ All block data is stored in .txt files. Some have different formats. For example
 The other filters are different. Every host is stored on a new line, for clarity.
 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
-Run the script again to generate fresh filters. Reloading the filters into Safari (especially the hosts) can take up to 15 seconds.
+Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
 
 ### Number of filters (as of 19 April 2016)
 
@@ -51,6 +51,9 @@ Total Unique number of hostnames added to the blocklist: 26.004 / 50.000
 
 Total: 23.139 / 50.000
 
+### Whitelists
+- Todo
+
 ## ToDo
 
 - privacy trackers (hosts) filter
@@ -61,6 +64,8 @@ Total: 23.139 / 50.000
 
 ## How to install
 
+### iOS Safari
+
 - Download the project
 - Build the project on your device
 - On your device go to Settings -> Safari -> Content Blockers
@@ -69,15 +74,24 @@ Total: 23.139 / 50.000
 
 This Content Blocking API is only available on 64 bit devices (iPhone 5s and newer, iPad Air and newer)
 
+### OSX Safari
+(Manual method, for now)
+- Open up the Safari Extension Builder from the Developer Menu.
+- Create a new extension
+- Copy the blockerList.json into the Extension folder you just created.
+- Load this blockerList.json into the Content Blocker dropdown menu.
+- Install the extension.
+
 ## How to update the filters
 
 Updating the blocking filters is easy:
 
 - Update the filters in the folder BlockData
+- Enable/Disable filters as you wish
 - CD TO /path/to/update-filters.swift in your terminal.
 - Run script: /usr/bin/swift update-filters.swift
 
-filters.json in the AdBlockerExtension is now updated. Open the app on your device to load the new filters into Safari.
+Both blockerList.json (UltimateAdBlock-Hosts & UltimateAdBlock-CSS) are now updated with the latest block data. Open the app on your iOS device to refresh the new filters into Safari.
 
 ## Contribute
 

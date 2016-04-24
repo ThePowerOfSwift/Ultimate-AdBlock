@@ -63,3 +63,5 @@ static.parsely.com
 tru.am
 passport.mobilenations.com
 linkedin.com/countserv/count
+ads.rubiconproject.com
+adnxs.com

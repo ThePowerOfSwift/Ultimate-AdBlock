@@ -27,19 +27,20 @@ The other filters are different. Every host is stored on a new line, for clarity
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
 
-### Number of filters (as of 19 April 2016)
+### Number of filters (as of 24 April 2016)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer hostnames: 2.413
 - Easylist hostnames: 5.093
 - Malwaredomains: 19.062
-- Custom hostnames: 65
+- Custom hostnames: 71
+- Whitelist hostnames: 2
 
-Total number of Hostnames: 26.633
+Total number of Hostnames: 26.639
 
-Duplicate hostnames removed: 629
+Duplicate hostnames removed: 632
 
-Total Unique number of hostnames added to the blocklist: 26.004 / 50.000
+Total Unique number of hostnames added to the blocklist: 26.007 / 50.000
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
@@ -47,12 +48,12 @@ Total Unique number of hostnames added to the blocklist: 26.004 / 50.000
 - CSS Elements (Custom) - Anti AdBlock: 6
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.705
-- Javascript files: 27
+- Javascript files: 29
 
-Total: 23.139 / 50.000
+Total: 23.141 / 50.000
 
 ### Whitelists
-- Todo
+- To add a website to your whitelist (so all the rules are ignored on this website) add your website to the whitelist.txt file with a * in front of the domain name.
 
 ## ToDo
 

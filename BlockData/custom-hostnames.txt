@@ -69,3 +69,7 @@ reviveservers.com
 buysellads.com
 edge.quantserve.com
 quantserve.com
+addthis.com
+addnow.com
+addthiscdn.com
+sharethis.com

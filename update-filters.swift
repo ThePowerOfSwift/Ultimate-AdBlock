@@ -37,6 +37,9 @@ let malwareHostnamesEnabled = true
 /// Custom hostnames
 let customHostnamesEnabled = true
 
+/// easyprivacy
+let easyprivacyEnabled = true
+
 /// Whitelist hostnames
 var whitelistEnabled = true
 
@@ -140,6 +143,14 @@ if easylist_adserversEnabled == true {
                         trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
                     }
                     
+                    if let dotRange = trimmedHost.rangeOfString("?") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("/") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
                     hostnamesToBlock.append(trimmedHost)
                     
                 }
@@ -187,30 +198,69 @@ if malwareHostnamesEnabled == true {
     
 }
 
-/*
+
 // MARK: FILTER: Easy Privacy List
  
 /// Easy Privacy hostnames 
 /// !!!
-/// All Credit to: 
+/// All Credit to: https://easylist-downloads.adblockplus.org/easyprivacy.txt
 /// URL:
 /// !!!
-var easyprivacyHostnames = [String]()
+var easyprivacyFile = "BlockData/easyprivacy.txt"
+var easyprivacyCount = 0
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/easyprivacy.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if easyprivacyEnabled == true {
+
+    do {
         
-        easyprivacyHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        let contents = try NSString(contentsOfFile: easyprivacyFile, usedEncoding: nil) as String
         
+        if contents.characters.count > 0 {
+            
+            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            easyprivacyCount = hosts.count
+            
+            for host in hosts {
+                
+                if host.rangeOfString("||") != nil{
+                    
+                    var trimmedHost = host
+                    
+                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
+                    
+                    /// Remove all special characters so all that remains are the hosts
+                    if let dotRange = trimmedHost.rangeOfString("^") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("$") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("*") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("?") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("/") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    hostnamesToBlock.append(trimmedHost)
+                    
+                }
+            }
+            
+        }
+        
+    } catch {
+        print("Can't read the \(easyprivacyFile) file.")
     }
     
-} catch {
-    print("Can't read the easyprivacy.txt file.")
 }
-*/
 
 // MARK: FILTER: Custom Hostnames
 /// Custom hostnames to block
@@ -437,17 +487,18 @@ numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
 
 print("")
 print("-- Hostnames:")
-print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
-print("Easylist hostnames: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
+print("yoyo.pgl.org AdServer: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
+print("Easylist: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
+print("Easylist Privacy: \(numberFormatter.stringFromNumber(easyprivacyCount)!)")
 print("Malwaredomains: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
-print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
-print("Whitelist hostnames: \(numberFormatter.stringFromNumber(whitelistCount)!)")
+print("Custom: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
+print("Whitelist: \(numberFormatter.stringFromNumber(whitelistCount)!)")
 
-let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount
+let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + easyprivacyCount + malwareHostnamesCount + customHostnamesCount
 let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count + malwareHostnamesCount
 
 print("")
-print("Total number of Hostnames: \(totalHostnamesToBlock)")
+print("Total number of Hostnames: \(numberFormatter.stringFromNumber(totalHostnamesToBlock)!)")
 print("Duplicate hostnames removed: \(totalHostnamesToBlock - totalHostnamesToBlockUnique)")
 print("Total Unique number of hostnames added to the blocklist: \(numberFormatter.stringFromNumber(totalHostnamesToBlockUnique)!) / 50.000")
 
@@ -540,6 +591,6 @@ catch {
 let end = NSDate()
 let timeInterval: Double = end.timeIntervalSinceDate(start)
 
-print("All done! filters.json has been updated in \(String(format: "%.2f", timeInterval)) seconds.")
-print("Restart the app on the device to load the new filters.")
+print("All done! blockerList.json for Hosts and CSS Elements has been updated in \(String(format: "%.2f", timeInterval)) seconds.")
+print("Build & Restart the app on the device to load the new filters into Safari.")
 print("------------------")

@@ -1,8 +1,25 @@
 # Ultimate-AdBlock for Safari
 Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
-Blocks hostnames and hides CSS Ads Elements.
+Blocks hostnames and hides CSS Ads Elements. The project is in active development.
 
-The project is in active development.
+## Content Blocker API VS JavaScript Blockers
+We all know them, the browser extensions that block ads and trackers. Some of them are fast and most of them use massive amounts of memory to block everything. 
+The more lists you subscribe to, the slower the browser is. You may have seen it in the statusbar when loading a webpage: "Wating for extension *name*".
+These lists are created in the last decade and contain elements that were found on some webpage at some point. There are also duplicate items for multiple websites and items.
+This list is refresh periodically (~ every week) and automagically. The browser extension makes a network connection, downloads the new list and stores it without you knowing it.
+While this is fine for most users and has been for the last decade, there must be a better way to protect your privacy.
+
+Thankfully Apple has created a new Content Blocker API for Safari (iOS & OSX).
+
+The goal of this extension is the following:
+
+- Never make a network connection
+- Never send (anonymous) usage statistics
+- Block most advertisements and trackers
+- Don't slow down the page
+
+The extensions never makes any network connections. The only way to update the filters is to update the extension itself, and that's fine.
+The complete blockerList.json consists of JSON rules that are delivered to Safari. For more info, please check "About the Safari Content Blocker API" below.
 
 ## Filters
 Ultimate AdBlock uses a couple of filters;
@@ -60,6 +77,9 @@ Size of blockerList.json: 368 KB
 
 ### Whitelists
 - To add a website to your whitelist (so all the rules are ignored on this website) add your website to the whitelist.txt file with a * in front of the domain name.
+
+### Updating the block list
+If you want to contribute and add a hostname of css element to the blocklist, please open a issue describing the hostname and which website is serving this hostname.
 
 ## ToDo
 - Easylist Dutch

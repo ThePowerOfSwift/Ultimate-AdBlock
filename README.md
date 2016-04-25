@@ -10,6 +10,7 @@ Ultimate AdBlock uses a couple of filters;
 ### Hostnames
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
+- [EasyList Privacy (Section: Third-party tracking domains)](https://easylist-downloads.adblockplus.org/easyprivacy.txt), updated 25 April 2016
 - [Malwaredomains](http://mirror1.malwaredomains.com), updated 19 April 2016
 - Custom hostnames, updated 10 April 2016
 
@@ -27,20 +28,23 @@ The other filters are different. Every host is stored on a new line, for clarity
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
 
-### Number of filters (as of 24 April 2016)
+### Number of filters (as of 25 April 2016)
 
 #### Hostnames:
-- yoyo.pgl.org AdServer hostnames: 2.413
-- Easylist hostnames: 5.093
+- yoyo.pgl.org AdServer: 2.413
+- Easylist: 5.093
+- Easylist Privacy: 2.602
 - Malwaredomains: 19.062
-- Custom hostnames: 71
-- Whitelist hostnames: 2
+- Custom: 75
+- Whitelist: 2
 
-Total number of Hostnames: 26.639
+Total number of Hostnames: 29.245
 
-Duplicate hostnames removed: 632
+Duplicate hostnames removed: 976
 
-Total Unique number of hostnames added to the blocklist: 26.007 / 50.000
+Total Unique number of hostnames added to the blocklist: 28.269 / 50.000
+
+Size of blockerList.json: 4.1 MB
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
@@ -52,14 +56,14 @@ Total Unique number of hostnames added to the blocklist: 26.007 / 50.000
 
 Total: 23.141 / 50.000
 
+Size of blockerList.json: 368 KB
+
 ### Whitelists
 - To add a website to your whitelist (so all the rules are ignored on this website) add your website to the whitelist.txt file with a * in front of the domain name.
 
 ## ToDo
-
-- privacy trackers (hosts) filter
 - Easylist Dutch
-- OSX Safari extension
+- Include OSX Safari extension
 - iOS Interface to enable/disable filters
 - Cleanup iOS app interface
 
@@ -79,9 +83,10 @@ This Content Blocking API is only available on 64 bit devices (iPhone 5s and new
 (Manual method, for now)
 - Open up the Safari Extension Builder from the Developer Menu.
 - Create a new extension
-- Copy the blockerList.json into the Extension folder you just created.
+- Copy the blockerList.json Hosts into the Extension folder you just created.
 - Load this blockerList.json into the Content Blocker dropdown menu.
 - Install the extension.
+- Optional: Do the same for the CSS blockerList.json.
 
 ## How to update the filters
 

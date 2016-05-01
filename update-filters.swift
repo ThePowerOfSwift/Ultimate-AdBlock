@@ -32,7 +32,7 @@ let adServerHostnamesEnabled = true
 var easylist_adserversEnabled = true
 
 /// Malwaredomains
-let malwareHostnamesEnabled = false
+let malwareHostnamesEnabled = true
 
 /// Custom hostnames
 let customHostnamesEnabled = true

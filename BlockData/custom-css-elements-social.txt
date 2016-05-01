@@ -8,7 +8,6 @@
 .socials
 .social
 .share
-.socialcount
 .social_follow_buttons
 #socialmedia_box
 #social

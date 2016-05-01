@@ -65,13 +65,13 @@ Size of blockerList.json: 4.4 MB
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
-- CSS Elements (Custom) - Social: 21
+- CSS Elements (Custom) - Social: 20
 - CSS Elements (Custom) - Anti AdBlock: 6
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.705
 - Javascript files: 29
 
-Total: 23.141 / 50.000
+Total: 23.140 / 50.000
 
 Size of blockerList.json: 368 KB
 

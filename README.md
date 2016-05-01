@@ -45,7 +45,7 @@ The other filters are different. Every host is stored on a new line, for clarity
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
 
-### Number of filters (as of 25 April 2016)
+### Number of filters (as of 1 May 2016)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer: 2.413
@@ -61,7 +61,7 @@ Duplicate hostnames removed: 976
 
 Total Unique number of hostnames added to the blocklist: 28.269 / 50.000
 
-Size of blockerList.json: 4.1 MB
+Size of blockerList.json: 4.4 MB
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62

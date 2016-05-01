@@ -26,7 +26,7 @@ stats.wp.com
 cdn.viglink.com
 farm.plista.com
 static.plista.com
-//www.facebook.com/plugins/
+facebook.com/plugins/
 track.netshelter.net
 rafflecopter.com
 zdbb.net

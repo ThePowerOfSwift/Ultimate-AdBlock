@@ -32,7 +32,7 @@ let adServerHostnamesEnabled = true
 var easylist_adserversEnabled = true
 
 /// Malwaredomains
-let malwareHostnamesEnabled = true
+let malwareHostnamesEnabled = false
 
 /// Custom hostnames
 let customHostnamesEnabled = true
@@ -146,7 +146,7 @@ if easylist_adserversEnabled == true {
                     if let dotRange = trimmedHost.rangeOfString("?") {
                         trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
                     }
-                    
+
                     if let dotRange = trimmedHost.rangeOfString("/") {
                         trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
                     }
@@ -519,7 +519,7 @@ print("")
 
 /// Iterate over every hostname and add it to the block list.
 for host in hostnamesToBlock {
-    let block = ["trigger" : ["url-filter" : String(host), "load-type" : ["third-party"] ], "action" : [ "type" : "block" ] ]
+    let block = ["trigger" : ["url-filter" : "^https?:/+([^/:]+\\.)?\(String(host))[:/]", "load-type" : ["third-party"] ], "action" : [ "type" : "block" ] ]
     blockerListHosts.append(block)
 }
 

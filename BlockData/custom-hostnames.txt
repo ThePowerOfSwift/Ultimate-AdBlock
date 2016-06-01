@@ -73,3 +73,5 @@ addthis.com
 addnow.com
 addthiscdn.com
 sharethis.com
+assets.pinterest.com
+pinterest.com

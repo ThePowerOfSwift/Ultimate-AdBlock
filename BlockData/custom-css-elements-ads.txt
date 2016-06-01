@@ -33,6 +33,7 @@
 #newsletter
 #huckster-desktop-wrapper
 #huckster-mobile-square-wrapper
+#huckster-sidenav
 #sponsored
 #div-gpt-ad
 #adTop_mobile
@@ -58,5 +59,6 @@ p.ad-container
 aside.mashsb-container
 aside.mashsb-main
 section[id=site-ads]
+section.ster-banner
 ins.adsbygoogle
 li.news__type--promo

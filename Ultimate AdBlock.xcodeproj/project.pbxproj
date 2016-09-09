@@ -347,14 +347,17 @@
 					0704A2701C0643F700FF14B0 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = TMFTC54VZX;
+						LastSwiftMigration = 0800;
 					};
 					077341841CC286070085830D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = TMFTC54VZX;
+						LastSwiftMigration = 0800;
 					};
 					077341951CC286AE0085830D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = TMFTC54VZX;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -594,6 +597,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -609,6 +613,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -623,6 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -637,6 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -651,6 +658,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -665,6 +673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

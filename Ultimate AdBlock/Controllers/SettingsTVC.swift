@@ -22,14 +22,14 @@ class SettingsTVC: UITableViewController {
         
         /// TableView Cells.
         rateAppCell.textLabel?.text = NSLocalizedString("RATE_APP", comment: "Rate Application in the App Store.")
-        aboutVersionCell.textLabel?.text = NSString(format: NSLocalizedString("APP_VERSION", comment: "The App Version."), NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String) as String
+        aboutVersionCell.textLabel?.text = NSString(format: NSLocalizedString("APP_VERSION", comment: "The App Version.") as NSString, Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String) as String
         
         rateAppCell.imageView?.image = UIImage(named: "Rate App")
         aboutVersionCell.imageView?.image = UIImage(named: "Information")
         
-        rateAppCell.accessoryType = .DisclosureIndicator
+        rateAppCell.accessoryType = .disclosureIndicator
         
-        aboutVersionCell.userInteractionEnabled = false
+        aboutVersionCell.isUserInteractionEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,21 +38,21 @@ class SettingsTVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        switch(indexPath.section) {
+        switch((indexPath as NSIndexPath).section) {
             
         case 0:
-            switch(indexPath.row) {
+            switch((indexPath as NSIndexPath).row) {
             case 0: return self.rateAppCell
             case 1: return self.aboutVersionCell
             default: fatalError()
@@ -63,11 +63,11 @@ class SettingsTVC: UITableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (indexPath.section == 0) {
+        if ((indexPath as NSIndexPath).section == 0) {
             
-            if (indexPath.row == 0) {
+            if ((indexPath as NSIndexPath).row == 0) {
                 
                 // TODO: Naar App Store sturen
                 

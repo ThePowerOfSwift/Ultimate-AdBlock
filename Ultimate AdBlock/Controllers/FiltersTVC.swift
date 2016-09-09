@@ -32,9 +32,9 @@ class FiltersTVC: UITableViewController {
         trackersCell.textLabel?.text = NSLocalizedString("FILTERS_TRACKERS", comment: "")
         shareCell.textLabel?.text = NSLocalizedString("FILTERS_SOCIAL_WIDGETS", comment: "")
         
-        adsCell.accessoryType = .DisclosureIndicator
-        trackersCell.accessoryType = .DisclosureIndicator
-        shareCell.accessoryType = .DisclosureIndicator
+        adsCell.accessoryType = .disclosureIndicator
+        trackersCell.accessoryType = .disclosureIndicator
+        shareCell.accessoryType = .disclosureIndicator
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class FiltersTVC: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         switch (section) {
             
@@ -54,26 +54,26 @@ class FiltersTVC: UITableViewController {
         
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCellWithIdentifier("Filter", forIndexPath: indexPath)
 
         //cell.textLabel?.text = tableViewItems[indexPath.row].hostName as String
 
         //return cell
         
-        switch(indexPath.section) {
+        switch((indexPath as NSIndexPath).section) {
             
         case 0:
-            switch(indexPath.row) {
+            switch((indexPath as NSIndexPath).row) {
             case 0: return self.adsCell
             case 1: return self.trackersCell
             case 2: return self.shareCell
@@ -84,25 +84,25 @@ class FiltersTVC: UITableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (indexPath.section == 0) {
+        if ((indexPath as NSIndexPath).section == 0) {
             
-            if (indexPath.row == 0) {
+            if ((indexPath as NSIndexPath).row == 0) {
                 
-                self.performSegueWithIdentifier("Filters Ads", sender: self)
+                self.performSegue(withIdentifier: "Filters Ads", sender: self)
                 
             }
             
-            if (indexPath.row == 1) {
+            if ((indexPath as NSIndexPath).row == 1) {
                 
-                self.performSegueWithIdentifier("Filters Trackers", sender: self)
+                self.performSegue(withIdentifier: "Filters Trackers", sender: self)
                 
             }
             
-            if (indexPath.row == 2) {
+            if ((indexPath as NSIndexPath).row == 2) {
                 
-                self.performSegueWithIdentifier("Filters Social", sender: self)
+                self.performSegue(withIdentifier: "Filters Social", sender: self)
                 
             }
             

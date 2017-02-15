@@ -1,2 +1,4 @@
 *play.google.com
 *apps.admob.com
+*itunesconnect.apple.com
+*console.firebase.google.com

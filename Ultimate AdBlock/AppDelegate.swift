@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// Reload the Blocker List on starting the app.
         let identifierHosts = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts"
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: identifierHosts) { (error) -> Void in
-            print(error)
+            print(error ?? "")
             print("Reloaded.")
         }
         
         let identifierCSS = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS"
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: identifierCSS) { (error) -> Void in
-            print(error)
+            print(error ?? "")
             print("Reloaded.")
         }
         

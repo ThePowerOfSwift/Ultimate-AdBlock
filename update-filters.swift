@@ -8,74 +8,73 @@
 
 import Foundation
 
-/// update-filters.swift file to update the adblocking filters used by the application.
-/// There is an already available hosts list available and you can add custom ones.
-///
-///
+// update-filters.swift file to update the adblocking filters used by the application.
+// There is an already available hosts list available and you can add custom ones.
+//
+//
 
-/// HOWTO: Update the filters
-///
-/// CD TO /path/to/update-filters.swift
-/// RUN AS: /usr/bin/swift update-filters.swift
-/// filters.json in the AdBlockerExtension is now updated.
-/// Restart or run the app on your device to get the newest filters.
+// HOWTO: Update the filters
+//
+// CD TO /path/to/update-filters.swift
+// RUN AS: /usr/bin/swift update-filters.swift
+// filters.json in the AdBlockerExtension is now updated.
+// Restart or run the app on your device to get the newest filters.
 
 print("------------------")
 print("Started generating the filters.json file.")
 
 // MARK: Enabled/Disabled per filter
 
-/// Default pgl.yoyo adservers
+// Default pgl.yoyo adservers
 let adServerHostnamesEnabled = true
 
-/// Easylist adservers
+// Easylist adservers
 var easylist_adserversEnabled = true
 
-/// Malwaredomains
-let malwareHostnamesEnabled = true
-
-/// Custom hostnames
-let customHostnamesEnabled = true
-
-/// easyprivacy
+// easyprivacy
 let easyprivacyEnabled = true
 
-/// Whitelist hostnames
+// Custom hostnames
+let customHostnamesEnabled = true
+
+// Whitelist hostnames
 var whitelistEnabled = true
 
-/// CSS Elements Anti AdBlock
+// End hostnames
+
+// CSS Elements Anti AdBlock
 let antiAdBlockElementsEnabled = true
 
-/// CSS Elements Ads
+// CSS Elements Ads
 let cssElementsAdsEnabled = true
 
-/// CSS Elements Ads Easylist
+// CSS Elements Ads Easylist
 let cssElementsAdsEasyListEnabled = true
 
-/// CSS Elements Social
+// CSS Elements Social
 let cssElementsSocialEnabled = true
 
-/// CSS Elements Social from the fanboy list
+// CSS Elements Social from the fanboy list
 let cssElementsSocialFanboyEnabled = true
 
-/// Javascript elements
+// Javascript elements
 let javascriptElementsEnabled = true
 
-/// Complete filters json block
+// Complete filters json block
 var blockerListHosts = [AnyObject]()
 var blockerListCssElements = [AnyObject]()
 
-/// The start time
+// The start time
 let start = NSDate()
 
-/// Complete array of all the hostnames that are going to be blocked.
+// Complete array of all the hostnames that are going to be blocked.
 var hostnamesToBlock = [String]()
 
 // MARK: FILTER: Default yoyo adservers
-/// pgl.yoyo adservers
-/// !!!
-/// All credit for these hostnames: https://pgl.yoyo.org/adservers/
-/// !!!
+// pgl.yoyo adservers
+// !!!
+// All credit for these hostnames: https://pgl.yoyo.org/adservers/
+// !!!
 let adServerHostnamesFile = "BlockData/yoyo-adservers.txt"
 var adServerHostnamesCount = 0
 
@@ -87,7 +86,7 @@ if adServerHostnamesEnabled == true {
         
         if contents.characters.count > 0 {
             
-            let hosts = contents.componentsSeparatedByString(",")
+            let hosts = contents.components(separatedBy: ",")
             adServerHostnamesCount = hosts.count
             
             for host in hosts {
@@ -102,12 +101,12 @@ if adServerHostnamesEnabled == true {
     
 }
 
-/// Easylist
-///!---------------------------Third-party advertisers---------------------------!
-///! *** easylist:easylist/easylist_adservers.txt ***
-/// !!!
-/// All credit for these hostnames: https://easylist-downloads.adblockplus.org/easylist.txt
-/// !!!
+// Easylist
+//!---------------------------Third-party advertisers---------------------------!
+//! *** easylist:easylist/easylist_adservers.txt ***
+// !!!
+// All credit for these hostnames: https://easylist-downloads.adblockplus.org/easylist.txt
+// !!!
 let easylist_adserversFile = "BlockData/easylist_adservers.txt"
 var easylist_adserversCount = 0
 
@@ -119,36 +118,36 @@ if easylist_adserversEnabled == true {
         
         if contents.characters.count > 0 {
             
-            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            let hosts = contents.components(separatedBy: NSCharacterSet.newlines)
             easylist_adserversCount = hosts.count
             
             for host in hosts {
                 
-                if host.rangeOfString("||") != nil{
+                if host.range(of: "||") != nil{
                     
                     var trimmedHost = host
                     
-                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
+                    trimmedHost = trimmedHost.replacingOccurrences(of: "||", with: "")
                     
-                    /// Remove all special characters so all that remains are the hosts
-                    if let dotRange = trimmedHost.rangeOfString("^") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    // Remove all special characters so all that remains are the hosts
+                    if let dotRange = trimmedHost.range(of: "^") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("$") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "$") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("*") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "*") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("?") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "?") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
 
-                    if let dotRange = trimmedHost.rangeOfString("/") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "/") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
                     hostnamesToBlock.append(trimmedHost)
@@ -164,48 +163,14 @@ if easylist_adserversEnabled == true {
     
 }
 
-// MARK: FILTER: Malwaredomains
-
-/// MalwareDomains.com
-/// !!!
-/// All credit for these hostnames: http://mirror1.malwaredomains.com
-/// !!!
-let malwareHostnamesFile = "BlockData/justdomains"
-var malwareHostnamesToBlock = [String]()
-var malwareHostnamesCount = 0
-
-if malwareHostnamesEnabled == true {
-
-    do {
-        
-        let contents = try NSString(contentsOfFile: malwareHostnamesFile, usedEncoding: nil) as String
-        
-        if contents.characters.count > 0 {
-        
-            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-            malwareHostnamesCount = hosts.count
-            
-            for host in hosts {
-                
-                malwareHostnamesToBlock.append(host)
-
-            }
-        }
-        
-    } catch {
-        print("Can't read the \(malwareHostnamesFile) file.")
-    }
-    
-}
-
 
 // MARK: FILTER: Easy Privacy List
  
-/// Easy Privacy hostnames 
-/// !!!
-/// All Credit to: https://easylist-downloads.adblockplus.org/easyprivacy.txt
-/// URL:
-/// !!!
+// Easy Privacy hostnames
+// !!!
+// All Credit to: https://easylist-downloads.adblockplus.org/easyprivacy.txt
+// URL:
+// !!!
 var easyprivacyFile = "BlockData/easyprivacy.txt"
 var easyprivacyCount = 0
 
@@ -217,36 +182,36 @@ if easyprivacyEnabled == true {
         
         if contents.characters.count > 0 {
             
-            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            let hosts = contents.components(separatedBy: NSCharacterSet.newlines)
             easyprivacyCount = hosts.count
             
             for host in hosts {
                 
-                if host.rangeOfString("||") != nil{
+                if host.range(of: "||") != nil{
                     
                     var trimmedHost = host
                     
-                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
+                    trimmedHost = trimmedHost.replacingOccurrences(of: "||", with: "")
                     
-                    /// Remove all special characters so all that remains are the hosts
-                    if let dotRange = trimmedHost.rangeOfString("^") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    // Remove all special characters so all that remains are the hosts
+                    if let dotRange = trimmedHost.range(of: "^") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("$") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "$") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("*") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "*") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("?") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "?") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
-                    if let dotRange = trimmedHost.rangeOfString("/") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    if let dotRange = trimmedHost.range(of: "/") {
+                        trimmedHost.removeSubrange(dotRange.lowerBound..<trimmedHost.endIndex)
                     }
                     
                     hostnamesToBlock.append(trimmedHost)
@@ -263,7 +228,7 @@ if easyprivacyEnabled == true {
 }
 
 // MARK: FILTER: Custom Hostnames
-/// Custom hostnames to block
+// Custom hostnames to block
 let customHostnamesFile = "BlockData/custom-hostnames.txt"
 var customHostnamesCount = 0
 
@@ -275,11 +240,13 @@ if customHostnamesEnabled == true {
         
         if contents.characters.count > 0 {
             
-            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            let hosts = contents.components(separatedBy: NSCharacterSet.newlines)
             customHostnamesCount = hosts.count
             
             for host in hosts {
-                hostnamesToBlock.append(host)
+                if host.characters.count > 0 {
+                    hostnamesToBlock.append(host)
+                }
             }
             
         }
@@ -290,7 +257,7 @@ if customHostnamesEnabled == true {
 }
 
 // MARK: FILTER: Whitelist hostnames
-/// Whitelist websites to ignore all previous rules.
+// Whitelist websites to ignore all previous rules.
 var whitelistHostnames = [String]()
 let whitelistFile = "BlockData/whitelist.txt"
 var whitelistCount = 0
@@ -303,11 +270,13 @@ if whitelistEnabled == true {
         
         if contents.characters.count > 0 {
             
-            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            let hosts = contents.components(separatedBy: NSCharacterSet.newlines)
             whitelistCount = hosts.count
             
             for host in hosts {
-                whitelistHostnames.append(host)
+                if host.characters.count > 0 {
+                    whitelistHostnames.append(host)
+                }
             }
             
         }
@@ -318,7 +287,7 @@ if whitelistEnabled == true {
 }
 
 // MARK: FILTER: Anti Adblock Elements
-/// Remove Anti AdBlock CSS elements
+// Remove Anti AdBlock CSS elements
 var antiAdBlockElements: String = ""
 let antiAdBlockElementsFile = "BlockData/custom-css-elements-antiadblock.txt"
 
@@ -330,7 +299,7 @@ if antiAdBlockElementsEnabled == true {
         
         if contents.characters.count > 0 {
             
-            antiAdBlockElements = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            antiAdBlockElements = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
         
         }
     } catch {
@@ -340,7 +309,7 @@ if antiAdBlockElementsEnabled == true {
 }
 
 // MARK: FILTER: CSS Elements Ads
-/// Remove CSS Elements for ads
+// Remove CSS Elements for ads
 var cssElementsAds: String = ""
 let cssElementsAdsFile = "BlockData/custom-css-elements-ads.txt"
 
@@ -352,7 +321,7 @@ if cssElementsAdsEnabled == true {
         
         if contents.characters.count > 0 {
 
-            cssElementsAds = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            cssElementsAds = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
             
         }
         
@@ -363,7 +332,7 @@ if cssElementsAdsEnabled == true {
 }
 
 // MARK: FILTER: CSS Element Social
-/// Remove CSS Elements for social buttons
+// Remove CSS Elements for social buttons
 var cssElementsSocial: String = ""
 let cssElementsSocialFile = "BlockData/custom-css-elements-social.txt"
 
@@ -375,7 +344,7 @@ if cssElementsSocialEnabled == true {
         
         if contents.characters.count > 0 {
         
-            cssElementsSocial = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            cssElementsSocial = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
             
         }
         
@@ -386,12 +355,12 @@ if cssElementsSocialEnabled == true {
 }
 
 // MARK: FILTER: CSS Elements Social Fanboy
-/// Remove CSS Elements for social buttons
-/// !!!
-/// All credit for this data: https://easylist-downloads.adblockplus.org/fanboy-social.txt
-/// Section: General element hiding rules
-/// URL:
-/// !!!
+// Remove CSS Elements for social buttons
+// !!!
+// All credit for this data: https://easylist-downloads.adblockplus.org/fanboy-social.txt
+// Section: General element hiding rules
+// URL:
+// !!!
 
 var cssElementsSocialFanboy: String = ""
 let cssElementsSocialFanboyFile = "BlockData/fanboys-social-blocking-list.txt"
@@ -404,9 +373,9 @@ if cssElementsSocialFanboyEnabled == true {
         
         if contents.characters.count > 0 {
             
-            cssElementsSocialFanboy = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
-            cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("###", withString: "#")
-            cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+            cssElementsSocialFanboy = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsSocialFanboy = (cssElementsSocialFanboy as NSString).replacingOccurrences(of: "###", with: "#")
+            cssElementsSocialFanboy = (cssElementsSocialFanboy as NSString).replacingOccurrences(of: "##.", with: ".")
             
         }
         
@@ -417,12 +386,12 @@ if cssElementsSocialFanboyEnabled == true {
 }
 
 // MARK: FILTER: CSS Elements Easylist
-/// Remove CSS Elements for ads
-/// !!!
-/// All credit for this data: https://easylist-downloads.adblockplus.org/easylist.txt
-/// Section: General element hiding rules
-/// URL:
-/// !!!
+// Remove CSS Elements for ads
+// !!!
+// All credit for this data: https://easylist-downloads.adblockplus.org/easylist.txt
+// Section: General element hiding rules
+// URL:
+// !!!
 
 var cssElementsAdsEasyList: String = ""
 let cssElementsAdsEasyListFile = "BlockData/css-elements-ads-easylist.txt"
@@ -435,9 +404,9 @@ if cssElementsAdsEasyListEnabled == true {
         
         if contents.characters.count > 0 {
             
-            cssElementsAdsEasyList = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
-            cssElementsAdsEasyList = (cssElementsAdsEasyList as String).stringByReplacingOccurrencesOfString("###", withString: "#")
-            cssElementsAdsEasyList = (cssElementsAdsEasyList as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+            cssElementsAdsEasyList = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsAdsEasyList = (cssElementsAdsEasyList as NSString).replacingOccurrences(of: "###", with: "#")
+            cssElementsAdsEasyList = (cssElementsAdsEasyList as NSString).replacingOccurrences(of: "##.", with: ".")
             
         }
         
@@ -448,7 +417,7 @@ if cssElementsAdsEasyListEnabled == true {
 }
 
 // MARK: FILTER: Javascripts
-/// Block the following javascripts
+// Block the following javascripts
 var javascriptElements = [String]()
 let javascriptElementsFile = "BlockData/javascripts.txt"
 
@@ -460,7 +429,7 @@ if javascriptElementsEnabled == true {
         
         if contents.characters.count > 0 {
             
-            javascriptElements = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            javascriptElements = contents.components(separatedBy: NSCharacterSet.newlines)
             
         }
         
@@ -470,126 +439,119 @@ if javascriptElementsEnabled == true {
     
 }
 
-/// Statistics
+// Statistics
 
-let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
-let cssElementsAdsEasyListCount = cssElementsAdsEasyList.componentsSeparatedByString(",").count
-let cssElementsSocialCount = cssElementsSocial.componentsSeparatedByString(",").count
-let antiAdBlockElementsCount = antiAdBlockElements.componentsSeparatedByString(",").count
-let cssElementsSocialFanboyCount = cssElementsSocialFanboy.componentsSeparatedByString(",").count
+let cssElementsAdsCount = cssElementsAds.components(separatedBy: ",").count
+let cssElementsAdsEasyListCount = cssElementsAdsEasyList.components(separatedBy: ",").count
+let cssElementsSocialCount = cssElementsSocial.components(separatedBy: ",").count
+let antiAdBlockElementsCount = antiAdBlockElements.components(separatedBy: ",").count
+let cssElementsSocialFanboyCount = cssElementsSocialFanboy.components(separatedBy: ",").count
 
 let javascriptElementsCount = javascriptElements.count
 
 // MARK: Iterating over the filters and add them to the blockList array.
 
-var numberFormatter = NSNumberFormatter()
-numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+var numberFormatter = NumberFormatter()
+numberFormatter.numberStyle = NumberFormatter.Style.decimal
 
 print("")
 print("-- Hostnames:")
-print("yoyo.pgl.org AdServer: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
-print("Easylist: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
-print("Easylist Privacy: \(numberFormatter.stringFromNumber(easyprivacyCount)!)")
-print("Malwaredomains: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
-print("Custom: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
-print("Whitelist: \(numberFormatter.stringFromNumber(whitelistCount)!)")
+print("yoyo.pgl.org AdServer: \(numberFormatter.string(from: NSNumber(value: adServerHostnamesCount))!)")
+print("Easylist: \(numberFormatter.string(from: NSNumber(value: easylist_adserversCount))!)")
+print("Easylist Privacy: \(numberFormatter.string(from: NSNumber(value: easyprivacyCount))!)")
+print("Custom: \(numberFormatter.string(from: NSNumber(value: customHostnamesCount))!)")
+print("Whitelist: \(numberFormatter.string(from: NSNumber(value: whitelistCount))!)")
 
-let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + easyprivacyCount + malwareHostnamesCount + customHostnamesCount
-let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count + malwareHostnamesCount
+let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + easyprivacyCount + customHostnamesCount
+let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count
 
 print("")
-print("Total number of Hostnames: \(numberFormatter.stringFromNumber(totalHostnamesToBlock)!)")
+print("Total number of Hostnames: \(numberFormatter.string(from: NSNumber(value: totalHostnamesToBlock))!)")
 print("Duplicate hostnames removed: \(totalHostnamesToBlock - totalHostnamesToBlockUnique)")
-print("Total Unique number of hostnames added to the blocklist: \(numberFormatter.stringFromNumber(totalHostnamesToBlockUnique)!) / 50.000")
+print("Total Unique number of hostnames added to the blocklist: \(numberFormatter.string(from: NSNumber(value: totalHostnamesToBlockUnique))!) / 50.000")
 
 print("")
 print("-- CSS Elements Hiding & JavaScripts:")
-print("CSS Elements (Custom) - Ads: \(numberFormatter.stringFromNumber(cssElementsAdsCount)!)")
-print("CSS Elements (Custom) - Social: \(numberFormatter.stringFromNumber(cssElementsSocialCount)!)")
-print("CSS Elements (Custom) - Anti AdBlock: \(numberFormatter.stringFromNumber(antiAdBlockElementsCount)!)")
-print("CSS Elements - Ads EasyList: \(numberFormatter.stringFromNumber(cssElementsAdsEasyListCount)!)")
-print("CSS Elements - Social Fanboys List: \(numberFormatter.stringFromNumber(cssElementsSocialFanboyCount)!)")
-print("Javascript files: \(numberFormatter.stringFromNumber(javascriptElementsCount)!)")
+print("CSS Elements (Custom) - Anti AdBlock: \(numberFormatter.string(from: NSNumber(value: antiAdBlockElementsCount))!)")
+print("CSS Elements (Custom) - Ads: \(numberFormatter.string(from: NSNumber(value: cssElementsAdsCount))!)")
+print("CSS Elements (Custom) - Social: \(numberFormatter.string(from: NSNumber(value: cssElementsSocialCount))!)")
+print("CSS Elements - Ads EasyList: \(numberFormatter.string(from: NSNumber(value: cssElementsAdsEasyListCount))!)")
+print("CSS Elements - Social Fanboys List: \(numberFormatter.string(from: NSNumber(value: cssElementsSocialFanboyCount))!)")
+print("Javascript files: \(numberFormatter.string(from: NSNumber(value: javascriptElementsCount))!)")
 print("")
 
 let totalCSSElementsToBlock = cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
 
-print("Total: \(numberFormatter.stringFromNumber(totalCSSElementsToBlock)!) / 50.000")
+print("Total: \(numberFormatter.string(from: NSNumber(value: totalCSSElementsToBlock))!) / 50.000")
 print("")
 
-/// Iterate over every hostname and add it to the block list.
+// Iterate over every hostname and add it to the block list.
 for host in hostnamesToBlock {
-    let block = ["trigger" : ["url-filter" : "^https?:/+([^/:]+\\.)?\(String(host))[:/]", "load-type" : ["third-party"] ], "action" : [ "type" : "block" ] ]
-    blockerListHosts.append(block)
+    let block = ["trigger" : ["url-filter" : "^https?:/+([^/:]+\\.)?\(String(host)!)[:/]", "load-type" : ["third-party"] ], "action" : [ "type" : "block" ] ]
+    blockerListHosts.append(block as AnyObject)
 }
 
-/// Iterate over every malware hostname and add it to the block list.
-for host in malwareHostnamesToBlock {
-    let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-    blockerListHosts.append(block)
-}
-
-/// Anti Adblock Elements
+// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
-blockerListCssElements.append(antiAdBlockElementsBlock)
+blockerListCssElements.append(antiAdBlockElementsBlock as AnyObject)
 
-/// Ads CSS Elements
+// Ads CSS Elements
 let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
-blockerListCssElements.append(cssElementsAdsBlock)
+blockerListCssElements.append(cssElementsAdsBlock as AnyObject)
 
-/// Ads CSS Elements EasyList
+// Ads CSS Elements EasyList
 let cssElementsAdsEasyListBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAdsEasyList)" ] ]
-blockerListCssElements.append(cssElementsAdsEasyListBlock)
+blockerListCssElements.append(cssElementsAdsEasyListBlock as AnyObject)
 
-/// Social CSS Elements
+// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
-blockerListCssElements.append(cssElementsSocialBlock)
+blockerListCssElements.append(cssElementsSocialBlock as AnyObject)
 
-/// Social CSS Elements Fanboy List
+// Social CSS Elements Fanboy List
 let cssElementsSocialFanboyBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocialFanboy)" ] ]
-blockerListCssElements.append(cssElementsSocialFanboyBlock)
+blockerListCssElements.append(cssElementsSocialFanboyBlock as AnyObject)
 
-/// Javascripts
+// Javascripts
 for javascriptElement in javascriptElements {
     let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
-    blockerListCssElements.append(javascriptElementBlock)
+    blockerListCssElements.append(javascriptElementBlock as AnyObject)
 }
 
-/// Whitelist hostnames
+// Whitelist hostnames
 if whitelistCount > 0 {
     let block = ["trigger" : ["url-filter" : ".*", "if-domain" : whitelistHostnames ], "action" : [ "type" : "ignore-previous-rules" ] ]
-    blockerListHosts.append(block)
-    blockerListCssElements.append(block)
+    blockerListHosts.append(block as AnyObject)
+    blockerListCssElements.append(block as AnyObject)
 }
 
 // MARK: Generate json file.
-/// Parse the JSON and write it to a file.
+// Parse the JSON and write it to a file.
 print("Generating blockerList json files..")
 
-/// Hosts
-let dataHosts = try! NSJSONSerialization.dataWithJSONObject(blockerListHosts, options: NSJSONWritingOptions.PrettyPrinted)
-let stringHosts = NSString(data: dataHosts, encoding: NSUTF8StringEncoding)
+// Hosts
+let dataHosts = try! JSONSerialization.data(withJSONObject: blockerListHosts, options: JSONSerialization.WritingOptions.prettyPrinted)
+let stringHosts = NSString(data: dataHosts, encoding: String.Encoding.utf8.rawValue)
 
 do {
-    try stringHosts!.writeToFile("UltimateAdBlock-Hosts/blockerList.json", atomically: false, encoding: NSUTF8StringEncoding)
+    try stringHosts!.write(toFile: "UltimateAdBlock-Hosts/blockerList.json", atomically: false, encoding: String.Encoding.utf8.rawValue)
 }
 catch {
     print("Extension Writing Error: \(error)")
 }
 
-/// CSS
-let dataCSS = try! NSJSONSerialization.dataWithJSONObject(blockerListCssElements, options: NSJSONWritingOptions.PrettyPrinted)
-let stringCSS = NSString(data: dataCSS, encoding: NSUTF8StringEncoding)
+// CSS
+let dataCSS = try! JSONSerialization.data(withJSONObject: blockerListCssElements, options: JSONSerialization.WritingOptions.prettyPrinted)
+let stringCSS = NSString(data: dataCSS, encoding: String.Encoding.utf8.rawValue)
 
 do {
-    try stringCSS!.writeToFile("UltimateAdBlock-CSS/blockerList.json", atomically: false, encoding: NSUTF8StringEncoding)
+    try stringCSS!.write(toFile: "UltimateAdBlock-CSS/blockerList.json", atomically: false, encoding: String.Encoding.utf8.rawValue)
 }
 catch {
     print("Extension Writing Error: \(error)")
 }
 
 let end = NSDate()
-let timeInterval: Double = end.timeIntervalSinceDate(start)
+let timeInterval: Double = end.timeIntervalSince(start as Date)
 
 print("All done! blockerList.json for Hosts and CSS Elements has been updated in \(String(format: "%.2f", timeInterval)) seconds.")
 print("Build & Restart the app on the device to load the new filters into Safari.")

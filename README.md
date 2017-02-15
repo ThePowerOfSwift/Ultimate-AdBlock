@@ -28,8 +28,7 @@ Ultimate AdBlock uses a couple of filters;
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
 - [EasyList Privacy (Section: Third-party tracking domains)](https://easylist-downloads.adblockplus.org/easyprivacy.txt), updated 25 April 2016
-- [Malwaredomains](http://mirror1.malwaredomains.com), updated 19 April 2016
-- Custom hostnames, updated 10 April 2016
+- Custom hostnames, updated 15 February 2017
 
 ### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt), updated 10 April 2016
@@ -37,7 +36,7 @@ Ultimate AdBlock uses a couple of filters;
 - Custom Anti AdBlock CSS elements, updated 10 April 2016
 - Custom Ads CSS elements, updated 10 April 2016
 - Custom Social sharing CSS elements, updated 10 April 2016
-- Javascript files, updated 10 April 2016
+- Javascript files, updated 15 February 2017
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a comma.
 The other filters are different. Every host is stored on a new line, for clarity.
@@ -45,35 +44,34 @@ The other filters are different. Every host is stored on a new line, for clarity
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
 
-### Number of filters (as of 1 June 2016)
+### Number of filters (as of 15 February 2017)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer: 2.413
 - Easylist: 5.093
 - Easylist Privacy: 2.602
-- Malwaredomains: 19.062
-- Custom: 77
-- Whitelist: 2
+- Custom: 80
+- Whitelist: 5
 
-Total number of Hostnames: 29.247
+Total number of Hostnames: 10.188
 
-Duplicate hostnames removed: 976
+Duplicate hostnames removed: 977
 
-Total Unique number of hostnames added to the blocklist: 28.271 / 50.000
+Total Unique number of hostnames added to the blocklist: 9.211 / 50.000
 
-Size of blockerList.json: 4.4 MB
+Size of blockerList.json: 1.9 MB
 
 #### CSS Elements Hiding & JavaScripts:
+- CSS Elements (Custom) - Anti AdBlock: 6
 - CSS Elements (Custom) - Ads: 64
 - CSS Elements (Custom) - Social: 20
-- CSS Elements (Custom) - Anti AdBlock: 6
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.704
-- Javascript files: 29
+- Javascript files: 33
 
-Total: 23.141 / 50.000
+Total: 23.145 / 50.000
 
-Size of blockerList.json: 368 KB
+Size of blockerList.json: 360 KB
 
 ### Whitelists
 To add a website to your whitelist (so all the rules are ignored on this website) add your website to the whitelist.txt file with a * in front of the domain name. Then update the filters.
@@ -133,7 +131,7 @@ For more info about this awesome API please check;
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016 Eric Horstmanshof
+Copyright (c) 2017 Eric Horstmanshof
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

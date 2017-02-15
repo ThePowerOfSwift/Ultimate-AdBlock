@@ -513,8 +513,10 @@ blockerListCssElements.append(cssElementsSocialFanboyBlock as AnyObject)
 
 // Javascripts
 for javascriptElement in javascriptElements {
-    let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
-    blockerListCssElements.append(javascriptElementBlock as AnyObject)
+    if javascriptElement.characters.count > 1 {
+        let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
+        blockerListCssElements.append(javascriptElementBlock as AnyObject)
+    }
 }
 
 // Whitelist hostnames

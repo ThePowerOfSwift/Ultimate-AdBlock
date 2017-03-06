@@ -111519,6 +111519,72 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?streamchartz.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?nineto5mac-d.openx.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?openx.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?d.openx.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?r.openx.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?us-a.openx.net[:\/]"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {

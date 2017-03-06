@@ -1,5 +1,5 @@
 # Ultimate-AdBlock for Safari
-Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
+Ad + Tracker + Social (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
 Blocks hostnames and hides CSS Ads Elements. The project is in active development.
 
 ## Content Blocker API VS JavaScript Blockers
@@ -15,7 +15,7 @@ The goal of this extension is the following:
 
 - Never make a network connection
 - Never send (anonymous) usage statistics
-- Block most advertisements and trackers
+- Block most advertisements, trackers & social services
 - Don't slow down the page
 
 The extensions never makes any network connection. The only way to update the filters is to update the extension itself, and that's fine.
@@ -28,7 +28,7 @@ Ultimate AdBlock uses a couple of filters;
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
 - [EasyList Privacy (Section: Third-party tracking domains)](https://easylist-downloads.adblockplus.org/easyprivacy.txt), updated 25 April 2016
-- Custom hostnames, updated 15 February 2017
+- Custom hostnames, updated 6 March 2017
 
 ### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt), updated 10 April 2016
@@ -36,15 +36,14 @@ Ultimate AdBlock uses a couple of filters;
 - Custom Anti AdBlock CSS elements, updated 10 April 2016
 - Custom Ads CSS elements, updated 10 April 2016
 - Custom Social sharing CSS elements, updated 10 April 2016
-- Javascript files, updated 15 February 2017
+- Javascript files, updated 6 March 2017
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a comma.
 The other filters are different. Every host is stored on a new line, for clarity.
 
-By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
-Run the script again to generate fresh filters. Reloading the filters into (iOS) Safari (especially the hosts) can take up to 15 seconds.
+By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false. Run the script again to generate fresh filters.
 
-### Number of filters (as of 15 February 2017)
+### Number of filters (as of 6 March 2017)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer: 2.413
@@ -93,7 +92,7 @@ If you want to contribute and add a hostname of css element to the blocklist, pl
 - Build the project on your device
 - On your device go to Settings -> Safari -> Content Blockers
 - Enable the Hosts and CSS Element Hiding Blocker
-- Enjoy a cleaner web with no annoying ads and trackers!
+- Enjoy a cleaner web with no annoying ads, trackers & social services!
 
 This Content Blocking API is only available on 64 bit devices (iPhone 5s and newer, iPad Air and newer)
 

@@ -9,6 +9,11 @@
 .social
 .share
 .social_follow_buttons
+.tx-streamchartz-margins
+.twitterLogin
+.fbLogin
+.google-signup-button
+.facebook-signup-button
 #socialmedia_box
 #social
 #chorus-social-fixed

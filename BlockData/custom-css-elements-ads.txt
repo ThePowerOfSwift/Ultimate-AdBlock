@@ -28,6 +28,9 @@
 .skyradio-wrapper
 .netshelter-ad
 .visor-breaker-ad
+.huckster-dfp
+.huckster-vip-info
+.sponsor--block
 #b_ac
 #b_re
 #newsletter

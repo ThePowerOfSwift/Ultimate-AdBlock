@@ -49,26 +49,26 @@ By default all filters are enabled. If you want to disable a filter (for example
 - yoyo.pgl.org AdServer: 2.413
 - Easylist: 5.093
 - Easylist Privacy: 2.602
-- Custom: 80
+- Custom: 86
 - Whitelist: 5
 
-Total number of Hostnames: 10.188
+Total number of Hostnames: 10.194
 
 Duplicate hostnames removed: 977
 
-Total Unique number of hostnames added to the blocklist: 9.211 / 50.000
+Total Unique number of hostnames added to the blocklist: 9.217 / 50.000
 
 Size of blockerList.json: 1.9 MB
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Anti AdBlock: 6
-- CSS Elements (Custom) - Ads: 64
-- CSS Elements (Custom) - Social: 20
+- CSS Elements (Custom) - Ads: 68
+- CSS Elements (Custom) - Social: 26
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.704
-- Javascript files: 33
+- Javascript files: 34
 
-Total: 23.145 / 50.000
+Total: 23.156 / 50.000
 
 Size of blockerList.json: 360 KB
 

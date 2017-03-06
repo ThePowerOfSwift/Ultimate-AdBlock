@@ -299,7 +299,14 @@ if antiAdBlockElementsEnabled == true {
         
         if contents.characters.count > 0 {
             
-            antiAdBlockElements = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            antiAdBlockElements = (contents as NSString).replacingOccurrences(of: "\n", with: ", ")
+            
+            let lastChar = antiAdBlockElements[antiAdBlockElements.index(before: antiAdBlockElements.endIndex)]
+            
+            if lastChar == " " {
+                antiAdBlockElements.remove(at: antiAdBlockElements.index(before: antiAdBlockElements.endIndex))
+                antiAdBlockElements.remove(at: antiAdBlockElements.index(before: antiAdBlockElements.endIndex))
+            }
         
         }
     } catch {
@@ -321,7 +328,14 @@ if cssElementsAdsEnabled == true {
         
         if contents.characters.count > 0 {
 
-            cssElementsAds = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsAds = (contents as NSString).replacingOccurrences(of: "\n", with: ", ")
+            
+            let lastChar = cssElementsAds[cssElementsAds.index(before: cssElementsAds.endIndex)]
+            
+            if lastChar == " " {
+                cssElementsAds.remove(at: cssElementsAds.index(before: cssElementsAds.endIndex))
+                cssElementsAds.remove(at: cssElementsAds.index(before: cssElementsAds.endIndex))
+            }
             
         }
         
@@ -344,7 +358,14 @@ if cssElementsSocialEnabled == true {
         
         if contents.characters.count > 0 {
         
-            cssElementsSocial = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsSocial = (contents as NSString).replacingOccurrences(of: "\n", with: ", ")
+            
+            let lastChar = cssElementsSocial[cssElementsSocial.index(before: cssElementsSocial.endIndex)]
+            
+            if lastChar == " " {
+                cssElementsSocial.remove(at: cssElementsSocial.index(before: cssElementsSocial.endIndex))
+                cssElementsSocial.remove(at: cssElementsSocial.index(before: cssElementsSocial.endIndex))
+            }
             
         }
         
@@ -373,9 +394,16 @@ if cssElementsSocialFanboyEnabled == true {
         
         if contents.characters.count > 0 {
             
-            cssElementsSocialFanboy = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsSocialFanboy = (contents as NSString).replacingOccurrences(of: "\n", with: ", ")
             cssElementsSocialFanboy = (cssElementsSocialFanboy as NSString).replacingOccurrences(of: "###", with: "#")
             cssElementsSocialFanboy = (cssElementsSocialFanboy as NSString).replacingOccurrences(of: "##.", with: ".")
+            
+            let lastChar = cssElementsSocialFanboy[cssElementsSocialFanboy.index(before: cssElementsSocialFanboy.endIndex)]
+            
+            if lastChar == " " {
+                cssElementsSocialFanboy.remove(at: cssElementsSocialFanboy.index(before: cssElementsSocialFanboy.endIndex))
+                cssElementsSocialFanboy.remove(at: cssElementsSocialFanboy.index(before: cssElementsSocialFanboy.endIndex))
+            }
             
         }
         
@@ -404,9 +432,16 @@ if cssElementsAdsEasyListEnabled == true {
         
         if contents.characters.count > 0 {
             
-            cssElementsAdsEasyList = (contents as NSString).replacingOccurrences(of: "\n", with: ",")
+            cssElementsAdsEasyList = (contents as NSString).replacingOccurrences(of: "\n", with: ", ")
             cssElementsAdsEasyList = (cssElementsAdsEasyList as NSString).replacingOccurrences(of: "###", with: "#")
             cssElementsAdsEasyList = (cssElementsAdsEasyList as NSString).replacingOccurrences(of: "##.", with: ".")
+            
+            let lastChar = cssElementsAdsEasyList[cssElementsAdsEasyList.index(before: cssElementsAdsEasyList.endIndex)]
+            
+            if lastChar == " " {
+                cssElementsAdsEasyList.remove(at: cssElementsAdsEasyList.index(before: cssElementsAdsEasyList.endIndex))
+                cssElementsAdsEasyList.remove(at: cssElementsAdsEasyList.index(before: cssElementsAdsEasyList.endIndex))
+            }
             
         }
         

@@ -111585,6 +111585,105 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?by2.uservoice.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?client.cobrowser.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?www.feefo.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?js.driftt.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?blueconic.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?js.spotx.tv[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?lightwidget.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?aka.spotxcdn.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?www.decenthat.com[:\/]"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {

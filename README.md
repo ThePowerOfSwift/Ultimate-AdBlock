@@ -1,5 +1,5 @@
 # Ultimate-AdBlock for Safari
-Ad + Tracker + Social (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
+Ad + Tracker + Social (Content) Blocker for iOS & macOS written in Swift, using the new Content Blocker API for fast blocking.
 Blocks hostnames and hides CSS Ads Elements. The project is in active development.
 
 ## Content Blocker API VS JavaScript Blockers
@@ -9,7 +9,7 @@ These lists are created in the last decade and contain elements that were found 
 This list is refreshed automagically (~ every week). The browser extension makes a network connection, downloads the new list and stores it without you knowing it.
 While this is fine for most users and has been for the last decade, there must be a better and faster way to protect your privacy.
 
-Thankfully Apple has created a new Content Blocker API for Safari (iOS & OSX).
+Thankfully Apple has created a new Content Blocker API for Safari (iOS & macOS).
 
 The goal of this extension is the following:
 
@@ -80,7 +80,7 @@ If you want to contribute and add a hostname of css element to the blocklist, pl
 
 ## ToDo
 - Easylist Dutch
-- Include OSX Safari extension
+- Include macOS Safari extension
 - iOS Interface to enable/disable filters
 - Cleanup iOS app interface
 
@@ -96,7 +96,7 @@ If you want to contribute and add a hostname of css element to the blocklist, pl
 
 This Content Blocking API is only available on 64 bit devices (iPhone 5s and newer, iPad Air and newer)
 
-### OSX Safari
+### macOS Safari
 (Manual method, for now)
 - Open up the Safari Extension Builder from the Developer Menu.
 - Create a new extension

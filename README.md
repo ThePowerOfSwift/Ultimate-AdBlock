@@ -28,7 +28,7 @@ Ultimate AdBlock uses a couple of filters;
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
 - [EasyList Privacy (Section: Third-party tracking domains)](https://easylist-downloads.adblockplus.org/easyprivacy.txt), updated 25 April 2016
-- Custom hostnames, updated 6 March 2017
+- Custom hostnames, updated 25 April 2017
 
 ### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt), updated 10 April 2016
@@ -43,32 +43,32 @@ The other filters are different. Every host is stored on a new line, for clarity
 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false. Run the script again to generate fresh filters.
 
-### Number of filters (as of 6 March 2017)
+### Number of filters (as of 25 April 2017)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer: 2.413
 - Easylist: 5.093
 - Easylist Privacy: 2.602
-- Custom: 86
+- Custom: 95
 - Whitelist: 5
 
-Total number of Hostnames: 10.194
+Total number of Hostnames: 10.203
 
 Duplicate hostnames removed: 977
 
-Total Unique number of hostnames added to the blocklist: 9.217 / 50.000
+Total Unique number of hostnames added to the blocklist: 9.226 / 50.000
 
 Size of blockerList.json: 1.9 MB
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Anti AdBlock: 6
-- CSS Elements (Custom) - Ads: 68
-- CSS Elements (Custom) - Social: 26
+- CSS Elements (Custom) - Ads: 67
+- CSS Elements (Custom) - Social: 25
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.704
 - Javascript files: 34
 
-Total: 23.156 / 50.000
+Total: 23.154 / 50.000
 
 Size of blockerList.json: 360 KB
 

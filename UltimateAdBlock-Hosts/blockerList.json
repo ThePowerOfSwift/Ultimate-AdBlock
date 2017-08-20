@@ -111684,6 +111684,61 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?v2.zopim.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?kcmsurvey.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?nervoussummer.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?mps.nbcuni.com[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?ex-ads.com[:\/]"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {
@@ -111692,7 +111747,9 @@
         "*play.google.com",
         "*apps.admob.com",
         "*itunesconnect.apple.com",
-        "*console.firebase.google.com"
+        "*console.firebase.google.com",
+        "*postmaster.google.com",
+        "*google.com\/webmasters\/tools"
       ]
     }
   }

@@ -310,6 +310,14 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "SocialTool.min\\.js"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {
@@ -318,7 +326,9 @@
         "*play.google.com",
         "*apps.admob.com",
         "*itunesconnect.apple.com",
-        "*console.firebase.google.com"
+        "*console.firebase.google.com",
+        "*postmaster.google.com",
+        "*google.com\/webmasters\/tools"
       ]
     }
   }

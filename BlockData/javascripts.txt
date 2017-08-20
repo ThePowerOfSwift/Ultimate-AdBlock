@@ -32,3 +32,4 @@ webtrekk_v5\.js
 chat\.js
 trackingCode\.js
 SocialTool.min\.js
+cdbeid.min\.js

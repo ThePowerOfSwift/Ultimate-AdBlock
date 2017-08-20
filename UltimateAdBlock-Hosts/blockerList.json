@@ -111739,6 +111739,28 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?cdb.cbtrk.net[:\/]"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "load-type" : [
+        "third-party"
+      ],
+      "url-filter" : "^https?:\/+([^\/:]+\\.)?cdn.cbtrk.net[:\/]"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {

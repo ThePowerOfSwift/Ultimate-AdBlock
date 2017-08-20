@@ -318,6 +318,14 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "cdbeid.min\\.js"
+    }
+  },
+  {
+    "action" : {
       "type" : "ignore-previous-rules"
     },
     "trigger" : {

@@ -31,3 +31,4 @@ webtrekk_v4\.js
 webtrekk_v5\.js
 chat\.js
 trackingCode\.js
+SocialTool.min\.js

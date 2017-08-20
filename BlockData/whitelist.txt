@@ -2,3 +2,5 @@
 *apps.admob.com
 *itunesconnect.apple.com
 *console.firebase.google.com
+*postmaster.google.com
+*google.com/webmasters/tools

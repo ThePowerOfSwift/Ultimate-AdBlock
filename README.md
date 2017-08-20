@@ -28,7 +28,7 @@ Ultimate AdBlock uses a couple of filters;
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
 - [EasyList Privacy (Section: Third-party tracking domains)](https://easylist-downloads.adblockplus.org/easyprivacy.txt), updated 25 April 2016
-- Custom hostnames, updated 25 April 2017
+- Custom hostnames, updated 20 August 2017
 
 ### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt), updated 10 April 2016
@@ -36,27 +36,27 @@ Ultimate AdBlock uses a couple of filters;
 - Custom Anti AdBlock CSS elements, updated 10 April 2016
 - Custom Ads CSS elements, updated 10 April 2016
 - Custom Social sharing CSS elements, updated 10 April 2016
-- Javascript files, updated 6 March 2017
+- Javascript files, updated 20 August 2017
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a comma.
 The other filters are different. Every host is stored on a new line, for clarity.
 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false. Run the script again to generate fresh filters.
 
-### Number of filters (as of 25 April 2017)
+### Number of filters (as of 20-8-2017)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer: 2.413
 - Easylist: 5.093
 - Easylist Privacy: 2.602
-- Custom: 95
-- Whitelist: 5
+- Custom: 100
+- Whitelist: 7
 
-Total number of Hostnames: 10.203
+Total number of Hostnames: 10.208
 
 Duplicate hostnames removed: 977
 
-Total Unique number of hostnames added to the blocklist: 9.226 / 50.000
+Total Unique number of hostnames added to the blocklist: 9.231 / 50.000
 
 Size of blockerList.json: 1.9 MB
 
@@ -66,9 +66,9 @@ Size of blockerList.json: 1.9 MB
 - CSS Elements (Custom) - Social: 25
 - CSS Elements - Ads EasyList: 16.318
 - CSS Elements - Social Fanboys List: 6.704
-- Javascript files: 34
+- Javascript files: 35
 
-Total: 23.154 / 50.000
+Total: 23.155 / 50.000
 
 Size of blockerList.json: 360 KB
 

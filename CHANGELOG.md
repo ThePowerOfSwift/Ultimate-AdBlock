@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.3.0
+- Updated filter lists
+
 ### 3.2.0
 - Updated filter lists
 
